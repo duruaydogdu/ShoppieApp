@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct Product: Codable {
+    let id: Int
+    let ad: String
+    let resim: String
+    let kategori: String
+    let fiyat: Int
+    let marka: String
+}
+

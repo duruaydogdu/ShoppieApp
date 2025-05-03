@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct APIResponse: Codable {
+    let urunler: [Product]
+    let success: Int
+}
+
