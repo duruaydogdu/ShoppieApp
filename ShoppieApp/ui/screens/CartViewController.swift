@@ -62,7 +62,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let item = viewModel.item(at: indexPath.row)
         cell.configure(with: item)
-        cell.delegate = self // 💥 Silme butonunun çalışması için şart
+        cell.delegate = self 
         return cell
     }
 
