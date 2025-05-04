@@ -9,7 +9,9 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-
+    @IBOutlet weak var addToCartButton: UIButton!
+    @IBOutlet weak var decreaseButton: UIButton!
+    @IBOutlet weak var increaseButton: UIButton!
     // MARK: - Properties
     var viewModel: ProductDetailViewModel!
 

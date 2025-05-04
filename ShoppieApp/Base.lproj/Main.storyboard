@@ -21,7 +21,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-rq-XVO">
                                 <rect key="frame" x="158.66666666666666" y="612.66666666666663" width="75.666666666666657" height="34.333333333333371"/>
-                                <color key="tintColor" name="mainColor"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                                 <connections>
@@ -136,7 +136,7 @@
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcH-mm-qzt">
                                                                             <rect key="frame" x="41.333333333333336" y="0.0" width="96.666666666666657" height="34.333333333333336"/>
-                                                                            <color key="tintColor" name="mainColor"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="plus.square.fill" catalog="system"/>
                                                                             <connections>
@@ -230,7 +230,7 @@
                                             <constraint firstAttribute="width" constant="40" id="kuB-dv-T2u"/>
                                             <constraint firstAttribute="height" constant="40" id="tZo-Mc-Fu8"/>
                                         </constraints>
-                                        <color key="tintColor" name="mainColor"/>
+                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system"/>
                                         <connections>
@@ -249,7 +249,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Ung-TE-1zl"/>
                                             <constraint firstAttribute="width" constant="40" id="oiF-wE-tM3"/>
                                         </constraints>
-                                        <color key="tintColor" name="mainColor"/>
+                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
                                         <connections>
@@ -279,7 +279,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOg-UB-IpL">
                                                 <rect key="frame" x="201.66666666666666" y="8" width="111.33333333333334" height="34.333333333333336"/>
-                                                <color key="tintColor" name="mainColor"/>
+                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Add to Cart"/>
                                                 <connections>
@@ -320,6 +320,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Product Detail" id="kPx-FW-XdF"/>
                     <connections>
+                        <outlet property="addToCartButton" destination="hOg-UB-IpL" id="RBw-gd-54y"/>
+                        <outlet property="decreaseButton" destination="aMa-3S-37z" id="sTf-o1-VRl"/>
+                        <outlet property="increaseButton" destination="JQ9-Qw-lAe" id="Aag-I7-27N"/>
                         <outlet property="priceLabel" destination="fMf-ym-xAO" id="5md-nm-toO"/>
                         <outlet property="productImageView" destination="T2c-7C-bch" id="rLV-kQ-aAR"/>
                         <outlet property="quantityLabel" destination="gE3-ot-CUj" id="Xcu-1x-tc2"/>
@@ -397,7 +400,7 @@
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhS-pR-7iE">
                                                                             <rect key="frame" x="0.0" y="0.0" width="207.66666666666666" height="34.333333333333336"/>
-                                                                            <color key="tintColor" name="mainColor"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
                                                                             <connections>
@@ -484,7 +487,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="bN0-AH-egM"/>
                                                 </constraints>
-                                                <color key="tintColor" name="mainColor"/>
+                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Confirm Cart"/>
                                                 <connections>
@@ -522,6 +525,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart.fill" catalog="system" id="SOX-fH-E2t"/>
                     <connections>
+                        <outlet property="confirmCartButton" destination="dHV-bg-Eov" id="7Fe-JM-Zwf"/>
                         <outlet property="tableView" destination="j0A-qk-1MK" id="z6V-ba-a16"/>
                         <outlet property="totalPriceLabel" destination="A10-Eq-nPv" id="jhl-Q4-69l"/>
                     </connections>
@@ -540,7 +544,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GV-nq-tVi">
                                 <rect key="frame" x="154.66666666666666" y="545" width="84" height="35"/>
-                                <color key="tintColor" name="mainColor"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
                                 <connections>
@@ -550,7 +554,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHM-vn-Amx">
                                 <rect key="frame" x="158.66666666666666" y="634" width="76" height="35"/>
-                                <color key="tintColor" name="mainColor"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                                 <connections>
@@ -610,7 +614,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX2-Qr-fVV">
                                 <rect key="frame" x="154" y="672.66666666666663" width="85" height="34.333333333333371"/>
-                                <color key="tintColor" name="mainColor"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
                                 <connections>
@@ -726,7 +730,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rF4-cp-pgo">
                                                 <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="34.333333333333336"/>
-                                                <color key="tintColor" name="mainColor"/>
+                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="person.crop.circle" catalog="system"/>
                                             </button>
@@ -743,7 +747,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNL-Hb-BWt">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="34.333333333333336"/>
-                                                <color key="tintColor" name="mainColor"/>
+                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="text.justifyright" catalog="system"/>
                                             </button>
@@ -760,7 +764,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd9-Hh-0ic">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="34.333333333333336"/>
-                                                <color key="tintColor" name="mainColor"/>
+                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="envelope.fill" catalog="system"/>
                                             </button>
@@ -777,7 +781,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWq-8c-yWW">
                                                 <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="34.333333333333336"/>
-                                                <color key="tintColor" name="mainColor"/>
+                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="phone.circle.fill" catalog="system"/>
                                             </button>
@@ -851,9 +855,6 @@
         <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="mainColor">
-            <color red="0.84700000286102295" green="0.25099998712539673" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

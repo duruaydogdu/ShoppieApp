@@ -5,7 +5,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
-
+    @IBOutlet weak var confirmCartButton: UIButton!
+    
     // MARK: - Properties
     private let viewModel = CartViewModel()
 
@@ -14,6 +15,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         setupTableView()
         fetchCartItems()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
