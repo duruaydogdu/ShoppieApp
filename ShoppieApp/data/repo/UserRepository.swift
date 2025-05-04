@@ -37,7 +37,7 @@ final class UserRepository {
     }
     
     static var currentUsername: String {
-        return UserDefaults.standard.string(forKey: "currentUser") ?? "guest_user"
+        return UserDefaults.standard.string(forKey: "currentUser") ?? "duru_aydogdu"
     }
     
     // MARK: - Aktif kullanıcı objesi
@@ -64,7 +64,9 @@ final class UserRepository {
     
     // MARK: - Aktif kullanıcı adını kaydet
     private func saveCurrentUser(_ username: String) {
-        UserDefaults.standard.set(username, forKey: currentUserKey)
+//        UserDefaults.standard.set(username, forKey: currentUserKey)
+        UserDefaults.standard.set("duru_aydogdu", forKey: currentUserKey)
+        
     }
     
     func resetAllData() {
