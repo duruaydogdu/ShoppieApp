@@ -1,3 +1,6 @@
 # ShoppieApp 
 
-[![ShoppieApp Video](https://img.shields.io/badge/▶️-ShoppieApp%20Demo-blue)](./video/ShoppieApp.mp4)
+<video src="video/ShoppieApp.mp4" controls width="100%">
+  Tarayıcınız video oynatmayı desteklemiyor.
+</video>
+
