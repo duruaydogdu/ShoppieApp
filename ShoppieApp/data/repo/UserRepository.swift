@@ -3,11 +3,10 @@ import Foundation
 final class UserRepository {
     private let registeredUsersKey = "registeredUsers"
     private let currentUserKey = "currentUser"
-
+    
     // MARK: - Kayıt
     func register(user: User) -> Bool {
         var users = getAllUsers()
-        // Kullanıcı adı benzersiz mi kontrol et
         if users.contains(where: { $0.username == user.username }) {
             return false
         }
@@ -16,7 +15,7 @@ final class UserRepository {
         saveCurrentUser(user.username)
         return true
     }
-
+    
     // MARK: - Giriş
     func login(username: String, password: String) -> Bool {
         let users = getAllUsers()
@@ -26,24 +25,28 @@ final class UserRepository {
         saveCurrentUser(username)
         return true
     }
-
+    
     // MARK: - Çıkış
     func logout() {
         UserDefaults.standard.removeObject(forKey: currentUserKey)
     }
-
-    // MARK: - Aktif kullanıcı adı
+    
+    // MARK: - Aktif kullanıcı adı (global erişim için static eklenebilir)
     func getCurrentUsername() -> String? {
         return UserDefaults.standard.string(forKey: currentUserKey)
     }
-
+    
+    static var currentUsername: String {
+        return UserDefaults.standard.string(forKey: "currentUser") ?? "guest_user"
+    }
+    
     // MARK: - Aktif kullanıcı objesi
     func getCurrentUser() -> User? {
         guard let username = getCurrentUsername() else { return nil }
         return getAllUsers().first(where: { $0.username == username })
     }
-
-    // MARK: - Kayıtlı tüm kullanıcıları getir
+    
+    // MARK: - Kayıtlı kullanıcıları getir
     private func getAllUsers() -> [User] {
         guard let data = UserDefaults.standard.data(forKey: registeredUsersKey),
               let users = try? JSONDecoder().decode([User].self, from: data) else {
@@ -51,16 +54,21 @@ final class UserRepository {
         }
         return users
     }
-
-    // MARK: - Kayıtlı kullanıcıları kaydet
+    
+    // MARK: - Kullanıcıları kaydet
     private func saveUsers(_ users: [User]) {
         if let data = try? JSONEncoder().encode(users) {
             UserDefaults.standard.set(data, forKey: registeredUsersKey)
         }
     }
-
+    
     // MARK: - Aktif kullanıcı adını kaydet
     private func saveCurrentUser(_ username: String) {
         UserDefaults.standard.set(username, forKey: currentUserKey)
+    }
+    
+    func resetAllData() {
+        UserDefaults.standard.removeObject(forKey: "registeredUsers")
+        UserDefaults.standard.removeObject(forKey: "currentUser")
     }
 }

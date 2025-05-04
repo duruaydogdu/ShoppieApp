@@ -9,15 +9,21 @@ import UIKit
 
 class EntranceViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var entranceImage: UIImageView!
-    
     @IBOutlet weak var entranceLabel: UILabel!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLoginStatus()
+    }
+    
+    // MARK: - Actions
     @IBAction func registerButton(_ sender: Any) {
         performSegue(withIdentifier: "toRegister", sender: nil)
     }
@@ -26,18 +32,17 @@ class EntranceViewController: UIViewController {
         performSegue(withIdentifier: "toLogin", sender: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    // MARK: - Helper
+    private func checkLoginStatus() {
         if let _ = UserRepository().getCurrentUsername() {
             showMainTabBar()
         }
     }
     
-    func showMainTabBar() {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
-            tabVC.modalPresentationStyle = .fullScreen
-            present(tabVC, animated: true)
-        }
-    
+    private func showMainTabBar() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        tabVC.modalPresentationStyle = .fullScreen
+        present(tabVC, animated: true)
+    }
 }

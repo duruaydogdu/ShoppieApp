@@ -9,13 +9,15 @@ import Foundation
 import Alamofire
 
 final class CartRepository {
-    
+
     // MARK: - Singleton
     static let shared = CartRepository()
     private init() {}
 
-    // MARK: - Sabit kullanıcı (test amaçlı)
-    private let username = "duru_aydogdu" // TODO: Login sonrası dinamik yap
+    // MARK: - Dinamik kullanıcı (giriş yapılmış kullanıcıyı alır)
+    private var username: String {
+        return UserRepository().getCurrentUsername() ?? "default_user"
+    }
 
     // MARK: - Ürün Sepete Ekle
     func addToCart(product: Product, quantity: Int, completion: @escaping (Bool) -> Void) {
@@ -59,11 +61,13 @@ final class CartRepository {
             }
     }
 
-
     // MARK: - Sepetten Ürün Sil
     func removeFromCart(sepetId: Int, completion: @escaping (Bool) -> Void) {
         let url = "http://kasimadalan.pe.hu/urunler/sepettenUrunSil.php"
-        let params: Parameters = ["sepetId": sepetId, "kullaniciAdi": username]
+        let params: Parameters = [
+            "sepetId": sepetId,
+            "kullaniciAdi": username
+        ]
 
         AF.request(url, method: .post, parameters: params).response { response in
             if response.error == nil {
