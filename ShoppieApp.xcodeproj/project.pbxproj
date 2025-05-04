@@ -43,6 +43,8 @@
 		7961B72F2DC4C22B006822AB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961B72E2DC4C22B006822AB /* ProfileViewController.swift */; };
 		7961B7322DC4C54B006822AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961B7312DC4C54B006822AB /* Constants.swift */; };
 		7961B7382DC4CCEF006822AB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961B7372DC4CCEF006822AB /* MainTabBarController.swift */; };
+		79AD06F02DC6BC1B00628258 /* CartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD06EF2DC6BC1B00628258 /* CartRepository.swift */; };
+		79AD06F42DC6C8A400628258 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD06F32DC6C8A400628258 /* CartCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		7961B72E2DC4C22B006822AB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7961B7312DC4C54B006822AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7961B7372DC4CCEF006822AB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		79AD06EF2DC6BC1B00628258 /* CartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepository.swift; sourceTree = "<group>"; };
+		79AD06F32DC6C8A400628258 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			children = (
 				7961B6F22DC423D8006822AB /* ProductRepository.swift */,
 				7961B7172DC4C10E006822AB /* UserRepository.swift */,
+				79AD06EF2DC6BC1B00628258 /* CartRepository.swift */,
 			);
 			path = repo;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			children = (
 				7961B7082DC42560006822AB /* ProductCell.swift */,
 				7961B70A2DC42571006822AB /* CartProductCell.swift */,
+				79AD06F32DC6C8A400628258 /* CartCell.swift */,
 			);
 			path = tableView;
 			sourceTree = "<group>";
@@ -323,8 +329,10 @@
 				7961B7212DC4C1B6006822AB /* LoginViewModel.swift in Sources */,
 				7961B6F52DC42429006822AB /* Product.swift in Sources */,
 				7961B6F72DC4243D006822AB /* CartProduct.swift in Sources */,
+				79AD06F02DC6BC1B00628258 /* CartRepository.swift in Sources */,
 				7961B6D12DC41C84006822AB /* SceneDelegate.swift in Sources */,
 				7961B6FB2DC424D0006822AB /* CartResponse.swift in Sources */,
+				79AD06F42DC6C8A400628258 /* CartCell.swift in Sources */,
 				7961B70B2DC42571006822AB /* CartProductCell.swift in Sources */,
 				7961B72B2DC4C20B006822AB /* RegisterViewController.swift in Sources */,
 				7961B6F32DC423D8006822AB /* ProductRepository.swift in Sources */,

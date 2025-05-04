@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CartResponse: Decodable {
+    let urunler_sepeti: [CartItem]?
+    let success: Int
+}
+
