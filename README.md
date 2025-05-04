@@ -1,6 +1,5 @@
 # ShoppieApp 
 
-<video src="video/ShoppieApp.mp4" controls width="100%">
-  Tarayıcınız video oynatmayı desteklemiyor.
-</video>
+https://github.com/user-attachments/assets/2d9dc708-1c81-4f7f-a6d4-30e3632f5070
+
 
