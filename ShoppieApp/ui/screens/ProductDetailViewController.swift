@@ -56,6 +56,7 @@ class ProductDetailViewController: UIViewController {
         }
     }
 
+
     // MARK: - Helpers
     private func updateQuantityUI() {
         quantityLabel.text = "\(viewModel.quantity)"

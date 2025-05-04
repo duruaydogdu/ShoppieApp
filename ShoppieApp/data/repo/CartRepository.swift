@@ -1,28 +1,35 @@
-//
-//  CartRepository.swift
-//  ShoppieApp
-//
-//  Created by Duru Aydoğdu on 4.05.2025.
-//
-
 import Foundation
 import Alamofire
 
 final class CartRepository {
 
-    // MARK: - Singleton
     static let shared = CartRepository()
     private init() {}
 
-    // MARK: - Dinamik kullanıcı (giriş yapılmış kullanıcıyı alır)
     private var username: String {
         return UserRepository().getCurrentUsername() ?? "default_user"
     }
 
-    // MARK: - Ürün Sepete Ekle
+    // MARK: - Ürün Sepete Ekle (varsa adet artır)
     func addToCart(product: Product, quantity: Int, completion: @escaping (Bool) -> Void) {
+        fetchCartItems { existingItems in
+            if let existingItem = existingItems.first(where: { $0.ad == product.ad }) {
+                // Önce sil, sonra yeni adetle ekle
+                self.removeFromCart(sepetId: existingItem.sepetId) { removeSuccess in
+                    if removeSuccess {
+                        self.addNewCartItem(product: product, quantity: existingItem.siparisAdeti + quantity, completion: completion)
+                    } else {
+                        completion(false)
+                    }
+                }
+            } else {
+                self.addNewCartItem(product: product, quantity: quantity, completion: completion)
+            }
+        }
+    }
+
+    private func addNewCartItem(product: Product, quantity: Int, completion: @escaping (Bool) -> Void) {
         let url = "http://kasimadalan.pe.hu/urunler/sepeteUrunEkle.php"
-        
         let parameters: Parameters = [
             "ad": product.ad,
             "resim": product.resim,
@@ -34,16 +41,15 @@ final class CartRepository {
         ]
 
         AF.request(url, method: .post, parameters: parameters).response { response in
-            if response.error == nil {
-                completion(true)
-            } else {
-                print("Add to cart error: \(String(describing: response.error))")
+            if let error = response.error {
+                print("Add to cart failed: \(error.localizedDescription)")
                 completion(false)
+            } else {
+                completion(true)
             }
         }
     }
 
-    // MARK: - Sepetteki Ürünleri Getir
     func fetchCartItems(completion: @escaping ([CartItem]) -> Void) {
         let url = "http://kasimadalan.pe.hu/urunler/sepettekiUrunleriGetir.php"
         let params: Parameters = ["kullaniciAdi": username]
@@ -61,7 +67,6 @@ final class CartRepository {
             }
     }
 
-    // MARK: - Sepetten Ürün Sil
     func removeFromCart(sepetId: Int, completion: @escaping (Bool) -> Void) {
         let url = "http://kasimadalan.pe.hu/urunler/sepettenUrunSil.php"
         let params: Parameters = [
@@ -70,11 +75,11 @@ final class CartRepository {
         ]
 
         AF.request(url, method: .post, parameters: params).response { response in
-            if response.error == nil {
-                completion(true)
-            } else {
-                print("Remove from cart error: \(String(describing: response.error))")
+            if let error = response.error {
+                print("Remove from cart error: \(error.localizedDescription)")
                 completion(false)
+            } else {
+                completion(true)
             }
         }
     }
